@@ -237,24 +237,87 @@ Lalu simpan dan refresh halaman webnya.
 
 ## Pertanyaan Praktikum
 
-1. Lakukan eksperimen dengan mengubah dan menambah properti dan nilai pada kode CSS
-dengan mengacu pada CSS Cheat Sheet yang diberikan pada file terpisah dari modul ini.
+### 1. Lakukan eksperimen dengan mengubah dan menambah properti dan nilai pada kode CSS dengan mengacu pada CSS Cheat Sheet yang diberikan pada file terpisah dari modul ini.
 
 Jawab:
+Sudah (Ketebalan Tombol Navigasi, Bagian Tombol Merah)
 
-2. Apa perbedaan pendeklarasian CSS elemen h1 {...} dengan #intro h1 {...}? berikan
-penjelasannya!
-
-Jawab:
-
-3. Apabila ada deklarasi CSS secara internal, lalu ditambahkan CSS eksternal dan inline CSS pada
-elemen yang sama. Deklarasi manakah yang akan ditampilkan pada browser? Berikan
-penjelasan dan contohnya!
+### 2. Apa perbedaan pendeklarasian CSS elemen h1 {...} dengan #intro h1 {...}? berikan penjelasannya!
 
 Jawab:
+- `h1 {...}`
+  - Selector ini memilih semua elemen `<h1>`** di halaman.
+  - Berlaku global tanpa memperhatikan letaknya.
+  - Contoh:
+    ```css
+    h1 {
+      color: blue;
+    }
+    ```
+    Semua `<h1>` akan berwarna biru.
 
-4. Pada sebuah elemen HTML terdapat ID dan Class, apabila masing-masing selector tersebut
-terdapat deklarasi CSS, maka deklarasi manakah yang akan ditampilkan pada browser?
-Berikan penjelasan dan contohnya! `( <p id="paragraf-1" class="text-paragraf"> )`
+- `#intro h1 {...}`
+  - Selector ini hanya memilih elemen `<h1>` yang berada di dalam elemen dengan id="intro".
+  - Berlaku lokal hanya dalam area tertentu.
+  - Contoh:
+    ```css
+    #intro h1 {
+      color: red;
+    }
+    ```
+    Hanya `<h1>` di dalam `<div id="intro">...</div>` yang berwarna merah.
+
+### 3. Apabila ada deklarasi CSS secara internal, lalu ditambahkan CSS eksternal dan inline CSS pada elemen yang sama. Deklarasi manakah yang akan ditampilkan pada browser? Berikan penjelasan dan contohnya!
 
 Jawab:
+Urutan prioritas CSS berdasarkan **Cascade**:
+1. External CSS → prioritas paling rendah.
+2. Internal CSS (`<style>...</style>`) → lebih tinggi dari eksternal.
+3. Inline CSS (`style="..."`) → paling tinggi.
+
+> Jika ketiganya ada, Inline CSS akan menang.
+
+Contoh:
+```html
+<head>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Internal CSS */
+    p {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <p style="color: red;">Teks ini akan berwarna merah</p>
+</body>
+```
+
+### 4. Pada sebuah elemen HTML terdapat ID dan Class, apabila masing-masing selector tersebut terdapat deklarasi CSS, maka deklarasi manakah yang akan ditampilkan pada browser? Berikan penjelasan dan contohnya! `( <p id="paragraf-1" class="text-paragraf"> )`
+
+Jawab:
+Pada CSS ada tingkatan prioritas selector:
+- Tag/element selector (contoh: `p`) > paling rendah.
+- Class Selector (contoh: `btn-primary`) > lebih tinggi.
+- ID Selector (contoh: `#intro`) > paling tinggi.
+Jadi kalau ada konflik, ID akan menang dibanding class
+
+contoh:
+```html
+<p id="intro" class="btn-primary">Halo</p>
+```
+
+```css
+p {
+  color: black;
+}
+
+.btn-primary {
+  color: blue;
+}
+
+#intro {
+  color: red;
+}
+```
