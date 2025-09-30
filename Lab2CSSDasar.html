@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percobaan Styling CSS</title>
+    <style>
+        body {
+            font-family:'Open Sans', sans-serif;
+        }
+        header {
+            min-height: 80px;
+            border-bottom: 1px solid #77CCEF;
+        }
+        h1 {
+            font-size: 30px;
+            color: #0F189F;
+            text-align: center;
+            padding: 20px 10px;
+        }
+        h1 i {
+            color: #6d6a6b;
+        }
+    </style>
+    <!-- menyisipkan css eksternal -->
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Roufan Building and <i><Data>Testing</Data></i></h1>
+    </header>
+    <nav>
+        <a href="lab2beranda.html">Beranda</a>
+        <a href="lab2kategori.html">Kategori</a>
+        <a href="lab2tentang.html">Tentang Kami</a>
+    </nav>
+    <!-- Mengambil ID CSS -->
+     <div id="intro">
+        <h1>Selamat Datang</h1>
+        <p style="text-align: center; color: #c6ccd1;">Kami sedang belajar HTML dan CSS dasar, pada mata kuliah <b>Pemrograman
+Web</b> di <i>Universitas Pelita Bangsa</i>. Pelajaran pertama yang kami dapat
+adalah membuat tampilan web sederhana dalam rangka mengenal tag-tag dasar HTML
+dan CSS.</p>
+        <!-- Mengambil Class CSS -->
+         <a class="button btn-primary" href="#intro">Informasi selengkapnya.</a>
+     </div>
+</body>
+</html>

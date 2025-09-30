@@ -1,0 +1,39 @@
+nav {
+    background: #1bb65b;
+    color:#fff;
+    padding: 15px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding:15px 20px;
+}
+nav .active,
+nav a:hover {
+    background: #086133;
+}
+/* Seleksi ID */
+#intro {
+    background: #418fb1;
+    border: 1px solid #099249;
+    min-height: 100px;
+    padding: 10px;
+}
+#intro h1 {
+    text-align: left;
+    border: 0;
+    color: #fff;
+}
+/* Seleksi Class */
+.button {
+    padding: 15px 20px;
+    background: #bebcbd;
+    color: #fff;
+    display: inline-block;
+    margin: 10px;
+    text-decoration: none;
+    border: solid 5px #7c0f1d;
+}
+.btn-primary {
+    background: #b11429;
+}
